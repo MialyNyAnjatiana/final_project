@@ -18,7 +18,7 @@ session_start();
     <title>Rechercher des objets</title>
 </head>
 
-<body>
+<body style="margin: 10px;">
     <header class="header">
         <?php include('../inc/header.php'); ?>
     </header>
@@ -47,6 +47,7 @@ session_start();
             <input type="submit" class="btn btn-outline-danger" value="Filtrer">
         </form>
     </main>
+    <?php include('../inc/footer.php'); ?>
 </body>
 
 </html>

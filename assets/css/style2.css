@@ -43,7 +43,7 @@ body {
 }
 
 .out {
-    background-image: linear-gradient(to left, #d2aeff, #84c2ff);
+    background-image: linear-gradient(to left, #f1aeff, #ff8484);
     height: 100%;
     display: flex;
     justify-self: center;
@@ -79,22 +79,22 @@ body {
     margin-bottom: 20px;
     margin-top: 5px;
     border-radius: 5px;
-    border-bottom: 3px solid #3f8cff;
+    border-bottom: 3px solid #ff5555;
 }
 
 .out-form .out-submit {
     width: 90%;
     height: 35px;
     border-radius: 5px;
-    background-image: linear-gradient(to left, #3f8cff, #76dbff);
-    box-shadow: 0 0 10px #76dbff;
+    background-image: linear-gradient(to left, #ff5555, #ff7979);
+    box-shadow: 0 0 10px #ff7979;
     border-style: none;
     color: white;
 }
 
 .out-form .out-submit:hover {
     cursor: pointer;
-    background-image: linear-gradient(to left, #5f3fff, #69a5ff);
+    background-image: linear-gradient(to left, #5f3fff, #ff5555);
     box-shadow: 0 0 10px #5f3fff;
 
 }

@@ -139,3 +139,14 @@ function getCategorieObjet() {
     mysqli_free_result($tab);
     return $result;
 }
+
+function getObjet($id) {
+    $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_objet = %x", $id);
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($data = mysqli_fetch_assoc($result)) {
+        return $data;
+    } else {
+        return NULL;
+    }
+    mysqli_free_result($result);
+}

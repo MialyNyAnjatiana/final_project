@@ -28,7 +28,7 @@ if (isset($_GET['cat']) && $_GET['cat'] != "") {
 
 <body>
 
-    <div style="margin: 50px;">
+    <div style="margin: 10px;">
         <header class="header">
             <?php include('../inc/header.php'); ?>
         </header>
@@ -54,12 +54,9 @@ if (isset($_GET['cat']) && $_GET['cat'] != "") {
                             <?php endforeach; ?>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title"><strong><?= htmlspecialchars($o['nom_objet']); ?></strong></h5>
-                            <p class="card-text"><?= htmlspecialchars($o['nom_membre']) ?></p>
+                            <h5 class="card-title"><strong><a href="fiche.php?id=<?= $o['id_objet'] ?>"><?= htmlspecialchars($o['nom_objet']); ?></a></strong></h5>
+                            <p class="card-text"><a href="ficheMembre.php?id=<?= htmlspecialchars($o['id_membre']) ?>"><?= htmlspecialchars($o['nom_membre']) ?></a></p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <p class="card-text"><?= htmlspecialchars($o['nom_membre']) ?></p>
-                        </ul>
                         <div class="hstack gap-3">
                             <h6 class="p-3"><strong></strong></h6>
                         </div>
@@ -67,8 +64,11 @@ if (isset($_GET['cat']) && $_GET['cat'] != "") {
 
                 <?php endforeach; ?>
             </section>
+
+           
         </main>
     </div>
+     <?php include('../inc/footer.php'); ?>
 </body>
 
 </html>

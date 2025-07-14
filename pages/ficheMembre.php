@@ -10,12 +10,16 @@ $membre = getUser($id);
 <head>
     <meta charset="UTF-8">
     <title>Fiche du membre</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <link href="../assets/img/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="bg-light">
+<body class="bg-light" style="margin: 10px;">
     <div class="header">
         <?php include('../inc/header.php'); ?>
     </div>
@@ -49,7 +53,10 @@ $membre = getUser($id);
                 </div>
             <?php endforeach; ?>
         </div>
+
+        
     </div>
+    <?php include('../inc/footer.php'); ?>
 </body>
 
 </html>

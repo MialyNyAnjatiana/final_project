@@ -124,3 +124,14 @@
     object-fit: cover; 
     border-radius: 50%; 
 } 
+
+footer {
+    margin-top: 10px;
+    bottom: 0;
+    padding: 20px;
+    text-align: center;
+    background-image: linear-gradient(to left, #ff7979, #ff5555);
+    color: white;
+    font-size: small;
+    font-weight: bold;
+}

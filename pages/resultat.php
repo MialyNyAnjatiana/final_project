@@ -24,7 +24,7 @@ $object = searchObjet($cat, $nom, $av);
     <title>Résultat</title>
 </head>
 
-<body>
+<body style="margin: 10px;">
     <header class="header">
         <?php include('../inc/header.php'); ?>
     </header>
@@ -43,7 +43,7 @@ $object = searchObjet($cat, $nom, $av);
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><strong><?= htmlspecialchars($o['nom_objet']); ?></strong></h5>
-                        <p class="card-text"><?= htmlspecialchars($o['nom_membre']) ?></p>
+                        <p class="card-text"><a href="ficheMembre.php?id=<?= htmlspecialchars($o['id_membre']) ?>"><?= htmlspecialchars($o['nom_membre']) ?></a></p>
                     </div>
                     <ul class="list-group list-group-flush">
 
@@ -55,7 +55,9 @@ $object = searchObjet($cat, $nom, $av);
 
             <?php endforeach; ?>
         </section>
+        
     </main>
+    <?php include('../inc/footer.php'); ?>
 </body>
 
 </html>
