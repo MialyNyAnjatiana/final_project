@@ -1,0 +1,25 @@
+- base [4205] ok
+    - Table
+        membre
+        catégorie objet
+        objet
+        image objet
+        emprunt
+
+    - Insérer données
+        4 membres
+        4 catégories (esthétique, bricolage, mécanique, cuisine)
+        10 objets par membre à répartir sur les catégories
+        10 emprunts
+
+- pages à créer
+    - Login & inscription
+        - page (2) + css
+        - fonction
+            login (email + mdp)
+            inscription (nom + date de naissance + genre + email + ville + mdp)
+    - Liste des objets (avec date de retour si emprunt en cours)
+        - page + css
+        - focntion
+            liste des objets
+    - Filtre par catégorie
