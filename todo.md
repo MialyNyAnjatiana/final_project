@@ -59,3 +59,13 @@ MOT DE PASSE : 1402
             getMembre(id)
             getObjetMembre (idmembre)
 
+    - emprunté
+        durée (en jour)
+        
+    _ fiche membre
+    liste des objets emprunte
+    pouvoir rendre
+    rehefa mamerina dia misy choix entre ok et abimer 
+
+    -page liste des objets ok et abime
+    nombre uniquement

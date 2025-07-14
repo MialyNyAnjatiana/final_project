@@ -3,6 +3,7 @@ session_start();
 $id = $_GET['id'];
 $objets = getObjetMembre($id);
 $membre = getUser($id);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -33,6 +34,7 @@ $membre = getUser($id);
                         <i class="bi bi-geo-alt-fill text-danger"></i> <?= htmlspecialchars($membre['ville']) ?>
                         <i class="bi bi-cake2-fill text-danger"></i> <?= htmlspecialchars($membre['date_naissance']) ?>
                         <i class="bi bi-envelope-fill text-danger"></i> <?= htmlspecialchars($membre['email']) ?>
+                        <i><a href="listeEmprunts.php?id=<?= $membre['id_membre'] ?>"><span>Voir la liste des emprunts  <i class="bi bi-arrow-right-circle"></i></span></a></i>
                     </p>
                 </div>
             </div>

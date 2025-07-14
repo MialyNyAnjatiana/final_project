@@ -42,7 +42,7 @@ $object = searchObjet($cat, $nom, $av);
                         <img src="../assets/img/<?= htmlspecialchars($o['nom_image']); ?>" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"><strong><?= htmlspecialchars($o['nom_objet']); ?></strong></h5>
+                        <h5 class="card-title"><strong><a href="fiche.php?id=<?= $o['id_objet'] ?>"><?= htmlspecialchars($o['nom_objet']); ?></a></strong></h5>
                         <p class="card-text"><a href="ficheMembre.php?id=<?= htmlspecialchars($o['id_membre']) ?>"><?= htmlspecialchars($o['nom_membre']) ?></a></p>
                     </div>
                     <ul class="list-group list-group-flush">

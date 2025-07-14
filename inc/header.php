@@ -19,12 +19,16 @@ $categories = getCategories();
                     </a>
                 </li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="formulaireAjout.php">Ajouter un objet</a></li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="ficheMembre.php?id=<?= htmlspecialchars($user['id_membre']) ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Hi, <?= htmlspecialchars($user['nom']) ?>
                     </a>
                 </li>
+
                 <li class="nav-item"><a class="nav-link active text-bg-danger" aria-current="page" href="../inc/deconnexion.php">Disconnect</a></li>
+                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="listeMembre.php">Fiche </a></li>
+                 
             </ul>
 
 

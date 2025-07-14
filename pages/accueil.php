@@ -45,21 +45,24 @@ if (isset($_GET['cat']) && $_GET['cat'] != "") {
                 <?php foreach ($object as $o): ?>
 
                     <article class="card" style="width: 18rem;">
+                    <a class="nav-link active" aria-current="page" href="ficheMembre.php?id=<?= htmlspecialchars($o['id_objet']) ?>"> 
                         <div>
                             <img src="../assets/img/<?= htmlspecialchars($o['nom_image']); ?>" class="card-img-top" alt="...">
                             <h6><span class="badge top-left"><?= htmlspecialchars($o['nom_categorie']) ?></span></h6>
                             <?php foreach ($situation as $s): ?>
-                                <h6><span class="badge top-right"><?php ($s['date_retour'] === NULL && $s['id_objet'] == $o['id_objet']) ? 'Emprunté' : 'Disponible' ?></span></h6>
-                                <h6><span class="badge top-right"><?= htmlspecialchars($s['date_retour']) ?></span></h6>
+                                <h6><span class="badge top-right"><?= disponibilité($o['id_objet']) ?></span></h6>
                             <?php endforeach; ?>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title"><strong><a href="fiche.php?id=<?= $o['id_objet'] ?>"><?= htmlspecialchars($o['nom_objet']); ?></a></strong></h5>
                             <p class="card-text"><a href="ficheMembre.php?id=<?= htmlspecialchars($o['id_membre']) ?>"><?= htmlspecialchars($o['nom_membre']) ?></a></p>
+                            <a href="formulaireEmprunt.php?id=<?= $o['id_objet'] ?>" class="btn btn-outline-primary w-100"> Emprunter
+                                <i class="bi bi-arrow-right"></i> </a>
                         </div>
                         <div class="hstack gap-3">
                             <h6 class="p-3"><strong></strong></h6>
                         </div>
+                        </a>
                     </article>
 
                 <?php endforeach; ?>

@@ -36,7 +36,8 @@ function inscription($nom, $date_naissance, $genre, $email, $ville, $mdp)
     mysqli_query(dbconnect(), $sql);
 }
 
-function getCategories() {
+function getCategories()
+{
     $sql = "SELECT * FROM emp_categorie_objet";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -47,7 +48,8 @@ function getCategories() {
     return $result;
 }
 
-function getListeObjet() {
+function getListeObjet()
+{
     $sql = "SELECT * FROM v_emp_obj_categorie_img";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -58,7 +60,20 @@ function getListeObjet() {
     return $result;
 }
 
-function getSituationObjet() {
+function getListeMembres()
+{
+    $sql = "SELECT * FROM emp_membre";
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function getSituationObjet()
+{
     $sql = "SELECT * FROM v_emp_obj_membre_emprunt";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -67,10 +82,10 @@ function getSituationObjet() {
     }
     mysqli_free_result($tab);
     return $result;
-
 }
 
-function filtreObjetCategorie($id_categorie) {
+function filtreObjetCategorie($id_categorie)
+{
     $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_categorie = %x", $id_categorie);
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -81,7 +96,8 @@ function filtreObjetCategorie($id_categorie) {
     return $result;
 }
 
-function getUser($idUser) {
+function getUser($idUser)
+{
     $sql = sprintf("SELECT * FROM emp_membre WHERE id_membre = %x", $idUser);
     $result = mysqli_query(dbconnect(), $sql);
     if ($data = mysqli_fetch_assoc($result)) {
@@ -92,7 +108,8 @@ function getUser($idUser) {
     mysqli_free_result($result);
 }
 
-function getObjetMembre($id_membre) {
+function getObjetMembre($id_membre)
+{
     $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_membre = %x ORDER BY nom_categorie", $id_membre);
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -129,7 +146,8 @@ function searchObjet($cat, $name, $available)
     return $result;
 }
 
-function getCategorieObjet() {
+function getCategorieObjet()
+{
     $sql = "SELECT * FROM emp_categorie_objet";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
@@ -140,7 +158,8 @@ function getCategorieObjet() {
     return $result;
 }
 
-function getObjet($id) {
+function getObjet($id)
+{
     $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_objet = %x", $id);
     $result = mysqli_query(dbconnect(), $sql);
     if ($data = mysqli_fetch_assoc($result)) {
@@ -150,3 +169,43 @@ function getObjet($id) {
     }
     mysqli_free_result($result);
 }
+
+function emprunter($obj, $user, $duree)
+{
+    $sql = sprintf("INSERT INTO emp_emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES (%x, %x, NOW(), DATE_ADD(NOW(), INTERVAL %d DAY))", $obj, $user, $duree);
+    mysqli_query(dbconnect(), $sql);
+    header('Location: ../pages/accueil.php');
+}
+
+function disponibilité($id_objet)
+{
+    $sql = "SELECT * FROM emp_emprunt WHERE id_objet =".$id_objet ." ORDER BY date_retour DESC";
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($data = mysqli_fetch_assoc($result)) {
+        if ($data['date_retour'] === NULL) {
+            return "emprunté";
+        } else if ($data['date_retour'] > date('Y-m-d')) {
+            return "disponible";
+        } else if ($data['date_retour'] <= date('Y-m-d')) {
+            return "disponible le" . $data['date_retour'];
+        } else {
+            return "disponible";
+        }
+    }
+    return "disponible";
+}
+
+function listeEmprunts($id_membre)
+{
+
+    $sql = sprintf("SELECT * FROM v_emp_obj_membre_emprunt WHERE id_membre = '%x'", $id_membre);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+

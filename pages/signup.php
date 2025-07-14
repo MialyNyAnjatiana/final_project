@@ -13,7 +13,6 @@
 
 <body class="out">
     <div class="out-form">
-        <img src="../assets/img/1598px-Holostars_logo.png" alt="" srcset="">
         <h2>Signin</h2>
 
         <form action="signup.php" method="post">

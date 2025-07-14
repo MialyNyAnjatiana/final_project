@@ -12,7 +12,6 @@
 
 <body class="out">
     <div class="out-form">
-        <img src="../assets/img/1598px-Holostars_logo.png">
         <h5>Login to your account</h5>
 
         <?php if (isset($_GET['error'])) { ?>
