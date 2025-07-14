@@ -1,13 +1,34 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, sans-serif;
+@font-face {
+    font-family: 'Astonpoliz';
+    src: url(../fonts/Astonpoliz.otf);
 }
 
-body {
-    background-color: #f6f5ff;
-    font-family: system-ui, sans-serif;
+@font-face {
+    font-family: 'Classica';
+    src: url(../fonts/Classica-Book.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Classica';
+    src: url(../fonts/Classica-BookOblique.ttf);
+    font-weight: normal;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: 'Classica';
+    src: url(../fonts/Classica-Bold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Classica';
+    src: url(../fonts/Classica-BoldOblique.ttf);
+    font-weight: bold;
+    font-style: oblique;
 }
 
 .header, .gallery {

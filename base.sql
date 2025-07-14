@@ -195,6 +195,7 @@ select
     o.nom_objet,
     o.nom_categorie,
     o.id_categorie,
+    m.id_membre,
     m.nom as nom_membre,
     m.img_profil
 from
@@ -204,7 +205,12 @@ from
 create
 or replace view v_emp_obj_membre_emprunt as
 select
-    *
+    o.id_objet,
+    o.nom_objet,
+    o.nom_categorie,
+    e.id_membre,
+    e.date_emprunt,
+    e.date_retour
 from
-    v_emp_obj_membre o
+    v_emp_obj_categorie o
     join emp_emprunt e on o.id_objet = e.id_objet;

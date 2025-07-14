@@ -79,3 +79,14 @@ function getUser($idUser) {
     }
     mysqli_free_result($result);
 }
+
+function getObjetMembre($id_membre) {
+    $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_membre = %x ORDER BY nom_categorie", $id_membre);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}

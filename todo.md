@@ -1,3 +1,4 @@
+## V1
 - base [4205] ok
     - Table
         membre
@@ -29,3 +30,30 @@
             view v_emp_obj_membre_emprunt
 
     - Filtre par catégorie [4205] ok
+
+## V2
+- css/design [4127]
+- pages à créer
+    - ajout objet [4127]
+        - formulaire - get
+            (nom objet, catégories, images)
+            images peuvent être supprimer + image par défaut si vide
+        - fonction
+    - fiche objet [4127]
+        - page + css
+            image principale + autres images
+            historique d'emprunt
+        - fonction
+    - critère de recherche [4205]
+        - formulaire - get
+            (catégorie, nom de l'objet, disponible?)
+        - page de résultat
+        - fonction
+    - fiche membre [4205] ok
+        -page
+            info sur le membre
+            liste des objets du membres regroupés par catégorie
+        - fonction
+            getMembre(id)
+            getObjetMembre (idmembre)
+
