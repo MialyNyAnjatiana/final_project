@@ -125,6 +125,48 @@ INSERT INTO emp_emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (40, 1, '2025-07-08', NULL),         -- Rasoa emprunte le kit de jardinage de Voara (non retourné)
 (1, 2, '2025-07-10', NULL);          -- Jean emprunte le kit de maquillage de Rasoa (non retourné)
 
+INSERT INTO emp_image_objet (id_objet, nom_image) VALUES
+(1, 'IMG_4019.JPG'),
+(2, 'IMG_4020.JPG'),
+(3, 'IMG_4021.JPG'),
+(4, 'IMG_4022.JPG'),
+(5, 'IMG_4023.JPG'),
+(6, 'IMG_4024.JPG'),
+(7, 'IMG_4025.JPG'),
+(8, 'IMG_4026.JPG'),
+(9, 'IMG_4027.JPG'),
+(10, 'IMG_4028.JPG'),
+(11, 'IMG_4029.JPG'),
+(12, 'IMG_4030.JPG'),
+(13, 'IMG_4031.JPG'),
+(14, 'IMG_4032.JPG'),
+(15, 'IMG_4033.JPG'),
+(16, 'IMG_4034.JPG'),
+(17, 'IMG_4035.JPG'),
+(18, 'IMG_4036.JPG'),
+(19, 'IMG_4037.JPG'),
+(20, 'IMG_4038.JPG'),
+(21, 'IMG_4039.JPG'),
+(22, 'IMG_4040.JPG'),
+(23, 'IMG_4041.JPG'),
+(24, 'IMG_4042.JPG'),
+(25, 'IMG_4043.JPG'),
+(26, 'IMG_4044.JPG'),
+(27, 'IMG_4045.JPG'),
+(28, 'IMG_4046.JPG'),
+(29, 'IMG_4047.JPG'),
+(30, 'IMG_4048.JPG'),
+(31, 'IMG_4049.JPG'),
+(32, 'IMG_4050.JPG'),
+(33, 'IMG_4051.JPG'),
+(34, 'IMG_4052.JPG'),
+(35, 'IMG_4053.JPG'),
+(36, 'IMG_4054.JPG'),
+(37, 'IMG_4055.JPG'),
+(38, 'IMG_4056.JPG'),
+(39, 'IMG_4057.JPG'),
+(40, 'IMG_4058.JPG');
+
 create
 or replace view v_emp_obj_categorie AS
 select
@@ -137,13 +179,14 @@ from
     emp_objet o
     join emp_categorie_objet c on o.id_categorie = c.id_categorie;
 
--- create
--- or replace view v_emp_obj_categorie_img as
--- select
---     *
--- from
---     v_emp_obj_categorie o
---     join emp_image_objet i on o.id_objet = i.id_objet;
+create
+or replace view v_emp_obj_categorie_img as
+select
+    o.*,
+    i.nom_image
+from
+    v_emp_obj_membre o
+    join emp_image_objet i on o.id_objet = i.id_objet;
 
 create
 or replace view v_emp_obj_membre as

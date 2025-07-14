@@ -48,7 +48,7 @@ function getCategories() {
 }
 
 function getListeObjet() {
-    $sql = "SELECT * FROM v_emp_obj_membre";
+    $sql = "SELECT * FROM v_emp_obj_categorie_img";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
     while ($data = mysqli_fetch_assoc($tab)) {
@@ -59,7 +59,7 @@ function getListeObjet() {
 }
 
 function filtreObjetCategorie($id_categorie) {
-    $sql = sprintf("SELECT * FROM v_emp_obj_membre WHERE id_categorie = %x", $id_categorie);
+    $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_categorie = %x", $id_categorie);
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
     while ($data = mysqli_fetch_assoc($tab)) {
