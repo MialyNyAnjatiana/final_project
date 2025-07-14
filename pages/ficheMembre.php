@@ -43,7 +43,7 @@ $membre = getUser($id);
                             </h5>
                             <p class="text-danger fw-bold"><?= htmlspecialchars($obj['nom_categorie']) ?></p>
                             <a href="fiche.php?id=<?= $obj['id_objet'] ?>" class="btn btn-outline-primary w-100"> Voir les détails
-                                <i class="bi bi-arrow-right-circle"></i> </a>
+                                <i class="bi bi-arrow-right"></i> </a>
                         </div>
                     </div>
                 </div>

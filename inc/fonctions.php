@@ -58,6 +58,18 @@ function getListeObjet() {
     return $result;
 }
 
+function getSituationObjet() {
+    $sql = "SELECT * FROM v_emp_obj_membre_emprunt";
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+
+}
+
 function filtreObjetCategorie($id_categorie) {
     $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_categorie = %x", $id_categorie);
     $tab = mysqli_query(dbconnect(), $sql);
@@ -82,6 +94,43 @@ function getUser($idUser) {
 
 function getObjetMembre($id_membre) {
     $sql = sprintf("SELECT * FROM v_emp_obj_categorie_img WHERE id_membre = %x ORDER BY nom_categorie", $id_membre);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function getQuery($cat, $name, $available)
+{
+    $sql = "SELECT * FROM v_emp_obj_categorie_img WHERE 1=1";
+    if ($cat != "") {
+        $sql .= sprintf(" AND id_categorie = %x", $cat);
+    }
+
+    if ($name != "") {
+        $sql .= sprintf(" AND nom_objet LIKE '%%%s%%'", $name);
+    }
+
+    return $sql;
+}
+
+function searchObjet($cat, $name, $available)
+{
+    $sql = getQuery($cat, $name, $available);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function getCategorieObjet() {
+    $sql = "SELECT * FROM emp_categorie_objet";
     $tab = mysqli_query(dbconnect(), $sql);
     $result = array();
     while ($data = mysqli_fetch_assoc($tab)) {
