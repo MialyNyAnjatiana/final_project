@@ -11,7 +11,7 @@ function login($email, $mdp)
     $result = mysqli_query(dbconnect(), $sql);
 
     if ($data = mysqli_fetch_assoc($result)) {
-        $_SESSION['id'] = $data['id'];
+        $_SESSION['id'] = $data['id_membre'];
         header('Location:../pages/accueil.php');
     } else {
         header('Location:../pages/login.php?error=1');
@@ -33,7 +33,49 @@ function inscription($nom, $date_naissance, $genre, $email, $ville, $mdp)
 
     $sql = "INSERT INTO emp_membre (nom, date_naissance,genre, email, ville,mdp,img_profil) 
             VALUES ('$nom', '$date_naissance','$genre' ,'$email', '$ville','$mdp','$photo')";
-
     mysqli_query(dbconnect(), $sql);
-    header('Location:../pages/accueil.php');
+}
+
+function getCategories() {
+    $sql = "SELECT * FROM emp_categorie_objet";
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function getListeObjet() {
+    $sql = "SELECT * FROM v_emp_obj_membre";
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function filtreObjetCategorie($id_categorie) {
+    $sql = sprintf("SELECT * FROM v_emp_obj_membre WHERE id_categorie = %x", $id_categorie);
+    $tab = mysqli_query(dbconnect(), $sql);
+    $result = array();
+    while ($data = mysqli_fetch_assoc($tab)) {
+        $result[] = $data;
+    }
+    mysqli_free_result($tab);
+    return $result;
+}
+
+function getUser($idUser) {
+    $sql = sprintf("SELECT * FROM emp_membre WHERE id_membre = %x", $idUser);
+    $result = mysqli_query(dbconnect(), $sql);
+    if ($data = mysqli_fetch_assoc($result)) {
+        return $data;
+    } else {
+        return NULL;
+    }
+    mysqli_free_result($result);
 }

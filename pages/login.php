@@ -1,6 +1,3 @@
-<?php
-include("../inc/fonctions.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">

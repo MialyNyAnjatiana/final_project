@@ -1,6 +1,6 @@
-create database emprunt;
+-- create database emprunt;
 
-use emprunt;
+-- use emprunt;
 
 -- table
 create table
@@ -124,3 +124,44 @@ INSERT INTO emp_emprunt (id_objet, id_membre, date_emprunt, date_retour) VALUES
 (33, 3, '2025-05-18', '2025-05-24'), -- Sitraka emprunte le kit de ponçage de Voara
 (40, 1, '2025-07-08', NULL),         -- Rasoa emprunte le kit de jardinage de Voara (non retourné)
 (1, 2, '2025-07-10', NULL);          -- Jean emprunte le kit de maquillage de Rasoa (non retourné)
+
+create
+or replace view v_emp_obj_categorie AS
+select
+    o.id_objet,
+    o.nom_objet,
+    c.nom_categorie,
+    o.id_categorie,
+    o.id_membre
+from
+    emp_objet o
+    join emp_categorie_objet c on o.id_categorie = c.id_categorie;
+
+-- create
+-- or replace view v_emp_obj_categorie_img as
+-- select
+--     *
+-- from
+--     v_emp_obj_categorie o
+--     join emp_image_objet i on o.id_objet = i.id_objet;
+
+create
+or replace view v_emp_obj_membre as
+select
+    o.id_objet,
+    o.nom_objet,
+    o.nom_categorie,
+    o.id_categorie,
+    m.nom as nom_membre,
+    m.img_profil
+from
+    v_emp_obj_categorie o
+    join emp_membre m on o.id_membre = m.id_membre;
+
+create
+or replace view v_emp_obj_membre_emprunt as
+select
+    *
+from
+    v_emp_obj_membre o
+    join emp_emprunt e on o.id_objet = e.id_objet;

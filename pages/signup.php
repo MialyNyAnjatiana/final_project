@@ -1,5 +1,4 @@
-<?php
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +21,9 @@
             <input type="date" name="date_naissance" class="out-input">
             <input type="radio" name="genre" placeholder="genre" class="out-input">
             <input type="text" name="email" placeholder="Email" class="out-input">
+            <input type="text" name="ville" placeholder="ville" class="out-input">
+            <input type="password" name="mdp" placeholder="Password" class="out-input">
 
-            <input type="password" name="password" placeholder="Password" class="out-input">
-
-            <h5 style="margin-top: 5px; margin-bottom: 5px;" for="birthdate">Date of birth</h5>
-            
 
             <input type="submit" value="Valider" class="out-submit">
         </form>

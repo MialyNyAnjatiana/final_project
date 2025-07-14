@@ -13,13 +13,19 @@
         10 emprunts
 
 - pages à créer
-    - Login & inscription
+    - Login & inscription [4127] ok
         - page (2) + css
         - fonction
             login (email + mdp)
             inscription (nom + date de naissance + genre + email + ville + mdp)
-    - Liste des objets (avec date de retour si emprunt en cours)
+    - Liste des objets (avec date de retour si emprunt en cours) [4205]
         - page + css
-        - focntion
-            liste des objets
-    - Filtre par catégorie
+        - fonction
+            liste des objets 
+            (nom_objet;nom_categorie,nom_membre,img_objet,date_retour)
+        -base
+            view v_emp_obj_categorie
+            view v_emp_obj_membre
+            view v_emp_obj_membre_emprunt
+
+    - Filtre par catégorie [4205] ok
